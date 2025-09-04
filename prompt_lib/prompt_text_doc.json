@@ -1,0 +1,5 @@
+{
+    "Global prompt:": "请根据给定的指令,利用给定的函数一步一步地完成任务,每一步你只能从以下函数库中选择一个或者多个无依赖关系的函数，并且为函数生成对应的参数。以json的格式生成每一步如下:step1={\n \"arg1\": [arg1,arg2...],\n \"function1\": \"%s\",\n \"output1\": \"%s\",\n \"description1\": \"%s\"\n},step2={\n \"arg1\": [arg1,arg2..],\n \"function1\": \"%s\",\n \"output1\": \"%s\",\n \"description1\": \"%s\"\n}###, 请注意每步的选择的多个函数之间必须无依赖关系, 并行地生成对应多个result_i, 后面步骤的函数使用之前的result作为参数输入,以###结尾.",
+    "Function Library:": "",
+    "Instruction: 请上传文件: pdf_file,并进行文本摘要": "###Function Call: step1={\n \"arg1\": [\"pdf_file\"],\n \"function1\": \"extract_text_from_pdf\",\n \"output1\": \"result1\",\n \"description1\": \"提取文本\"\n},step2={\n \"arg1\": [\"result1\"],\n \"function1\": \"extract_financial_indicators\",\n \"output1\": \"result2\",\n \"description1\": \"从提取文本中识别关键财务指标\"\n},step3={\n \"arg1\": [\"result1\"],\n \"function1\": \"analyze_risk_keywords\",\n \"output1\": \"result3\",\n \"description1\": \"从文本中统计风险相关关键词频率\"\n}###"
+}

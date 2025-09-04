@@ -1,0 +1,5 @@
+{
+    "extract_text_from_pdf(pdf_path: str) -> str:\n": "\"\"\"\n        Extract text from a PDF file.\n        Args:\n   - pdf_path: The path to the PDF file\n\n        Returns:\n        - str: The text extracted from the PDF file\n \"\"\"",
+    "extract_financial_indicators(text: str) -> dict:\n": "\"\"\"\n        Extract financial indicators from a text.\n        Args:\n   - text: The text to extract financial indicators from\n\n        Returns:\n        - dict: The financial indicators extracted from the text\n \"\"\"",
+    "analyze_risk_keywords(text: str) -> dict:\n": "\"\"\"\n        Analyze risk keywords from a text.\n        Args:\n   - text: The text to analyze risk keywords from\n\n        Returns:\n        - dict: The risk keywords analyzed from the text\n \"\"\""
+}
