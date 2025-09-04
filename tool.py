@@ -88,18 +88,15 @@ def get_adj_factor(stock_code: str = '', start_date: str = '', end_date: str = '
 
     return df
 
+
 def get_stock_code(stock_name: str) -> str:
     # Retrieve the stock code of a given stock name. If we call get_stock_code('贵州茅台'), it will return '600519.SH'.
-
-
-    df = pd.read_csv('tushare_stock_basic_20230421210721.csv')
+    df = pd.read_csv('files_data/tushare_stock_basic_20230421210721.csv')
     try:
         code = df.loc[df.name==stock_name].ts_code.iloc[0]
         return code
     except:
         return None
-
-
 
 
 def get_stock_name_from_code(stock_code: str) -> str:
@@ -113,12 +110,11 @@ def get_stock_name_from_code(stock_code: str) -> str:
         - str: The stock name of the given stock code.
         """
     # For example,if we call get_stock_name_from_code('600519.SH'), it will return '贵州茅台'.
-
-
-    df = pd.read_csv('tushare_stock_basic_20230421210721.csv')
+    df = pd.read_csv('files_data/tushare_stock_basic_20230421210721.csv')
     name = df.loc[df.ts_code == stock_code].name.iloc[0]
 
     return name
+
 
 def get_stock_prices_data(stock_name: str='', start_date: str='', end_date: str='', freq:str='daily') -> pd.DataFrame:
     """
@@ -133,7 +129,6 @@ def get_stock_prices_data(stock_name: str='', start_date: str='', end_date: str=
         Returns:
         - pd.DataFrame: A dataframe that contains the daily/weekly/monthly data. The output columns contain stock_code, trade_date, open, high, low, close, pre_close(昨天收盘价), change(涨跌额), pct_chg(涨跌幅),vol(成交量),amount(成交额)
         """
-
     stock_code = get_stock_code(stock_name)
 
     if freq == 'daily':
@@ -157,7 +152,6 @@ def get_stock_prices_data(stock_name: str='', start_date: str='', end_date: str=
             "vol",
             "amount"
         ])
-
     elif freq == 'weekly':
         stock_data = pro.weekly(**{
             "ts_code": stock_code,
@@ -201,7 +195,6 @@ def get_stock_prices_data(stock_name: str='', start_date: str='', end_date: str=
             "amount"
         ])
 
-
     adj_f = get_adj_factor(stock_code, start_date, end_date)
     stock_data = pd.merge(stock_data, adj_f, on=['ts_code', 'trade_date'])
     # Multiply the values of open, high, low, and close by their corresponding adjustment factors.
@@ -209,13 +202,12 @@ def get_stock_prices_data(stock_name: str='', start_date: str='', end_date: str=
     stock_data[['open', 'high', 'low', 'close']] *= stock_data['adj_factor'].values.reshape(-1, 1)
 
     #stock_data.rename(columns={'vol': 'volume'}, inplace=True)
-    df = pd.read_csv('tushare_stock_basic_20230421210721.csv')
+    df = pd.read_csv('files_data/tushare_stock_basic_20230421210721.csv')
     stock_data_merged = pd.merge(stock_data, df, on='ts_code')
     stock_data_merged.rename(columns={'ts_code': 'stock_code'}, inplace=True)
     stock_data_merged.rename(columns={'name': 'stock_name'}, inplace=True)
     stock_data_merged = stock_data_merged.sort_values(by='trade_date', ascending=True)  # To sort the DataFrame by date in ascending order
     return stock_data_merged
-
 
 
 def get_stock_technical_data(stock_name: str, start_date: str, end_date: str) -> pd.DataFrame:
@@ -232,7 +224,6 @@ def get_stock_technical_data(stock_name: str, start_date: str, end_date: str) ->
             including various indicators such as ts_code, trade_date, close, macd_dif, macd_dea, macd, kdj_k, kdj_d, kdj_j, rsi_6, rsi_12, boll_upper, boll_mid, boll_lower, cci, turnover_rate, turnover_rate_f, volume_ratio, pe_ttm(市盈率), pb(市净率), ps_ttm, dv_ttm, total_share, float_share, free_share, total_mv, circ_mv
 
     """
-
     # Technical factors
     stock_code = get_stock_code(stock_name)
     stock_data1 = pro.stk_factor(**{
@@ -287,7 +278,7 @@ def get_stock_technical_data(stock_name: str, start_date: str, end_date: str) ->
 
     #
     stock_data = pd.merge(stock_data1, stock_data2, on=['ts_code', 'trade_date'])
-    df = pd.read_csv('tushare_stock_basic_20230421210721.csv')
+    df = pd.read_csv('files_data/tushare_stock_basic_20230421210721.csv')
     stock_data_merged = pd.merge(stock_data, df, on='ts_code')
     stock_data_merged = stock_data_merged.sort_values(by='trade_date', ascending=True)
 
@@ -297,8 +288,6 @@ def get_stock_technical_data(stock_name: str, start_date: str, end_date: str) ->
     stock_data_merged.rename(columns={'name': 'stock_name'}, inplace=True)
 
     return stock_data_merged
-
-
 
 
 def plot_stock_data(stock_data: pd.DataFrame, ax: Optional[plt.Axes] = None, figure_type: str = 'line', title_name: str ='') -> plt.Axes:
@@ -320,7 +309,6 @@ def plot_stock_data(stock_data: pd.DataFrame, ax: Optional[plt.Axes] = None, fig
     Returns:
     - matplotlib Axes object, the axes containing the plot
     """
-
     index_name = stock_data.columns[2]
     name_list = stock_data.iloc[:,1]
     date_list = stock_data.iloc[:,0]
@@ -337,8 +325,6 @@ def plot_stock_data(stock_data: pd.DataFrame, ax: Optional[plt.Axes] = None, fig
         x_name = stock_data.columns[1]
 
         data_size = x_dim.shape[0]
-
-
 
     start_x_dim, end_x_dim = x_dim.iloc[0], x_dim.iloc[-1]
 
@@ -526,6 +512,7 @@ def plot_pie_chart(data: pd.DataFrame,
     
     return ax
 
+
 def query_fund_Manager(Manager_name: str) -> pd.DataFrame:
     # 代码fund_code,公告日期ann_date,基金经理名字name,性别gender,出生年份birth_year,学历edu,国籍nationality,开始管理日期begin_date,结束日期end_date,简历resume
     """
@@ -568,6 +555,7 @@ def query_fund_Manager(Manager_name: str) -> pd.DataFrame:
     df_out = df[['fund_name','fund_code','ann_date','manager_name','begin_date','end_date']]
 
     return df_out
+
 
 def plot_scatter(data: pd.DataFrame,
                 x_col: str,
@@ -795,7 +783,7 @@ def get_top10_holders(fund_code: str, start_date: str = '', end_date: str = '') 
 
         if df is None or df.empty:
             # 如果找不到股票代码，则说明是股票名称
-            df_stock_basic = pd.read_csv("tushare_stock_basic_20230421210721.csv")
+            df_stock_basic = pd.read_csv("files_data/tushare_stock_basic_20230421210721.csv")
             # print("df_stock_basic:",df_stock_basic)
             ts_code = df_stock_basic[df_stock_basic['name'] == fund_code]['ts_code']
             if not ts_code.empty:
@@ -1308,15 +1296,15 @@ def get_index_constituent(index_name: str = '', start_date:str ='', end_date:str
         if '申万一级行业' in index_name:
             # index_name取后面的名字
             index_name = index_name[6:]
-            df1 = pd.read_csv('SW2021_industry_L1.csv')
+            df1 = pd.read_csv('files_data/SW2021_industry_L1.csv')
             index_code = df1[df1['industry_name'] == index_name]['index_code'].iloc[0]
         elif '申万二级行业' in index_name:
             index_name = index_name[6:]
-            df1 = pd.read_csv('SW2021_industry_L2.csv')
+            df1 = pd.read_csv('files_data/SW2021_industry_L2.csv')
             index_code = df1[df1['industry_name'] == index_name]['index_code'].iloc[0]
         elif '申万三级行业' in index_name:
             index_name = index_name[6:]
-            df1 = pd.read_csv('SW2021_industry_L3.csv')
+            df1 = pd.read_csv('files_data/SW2021_industry_L3.csv')
             index_code = df1[df1['industry_name'] == index_name]['index_code'].iloc[0]
 
         print('The industry code for ', index_name, ' is: ', index_code)
@@ -1389,7 +1377,7 @@ def get_index_constituent(index_name: str = '', start_date:str ='', end_date:str
         last_day = df['trade_date'][0]
         #  for the last trading day
         df = df[df['trade_date'] == last_day]
-        df_stock = pd.read_csv('tushare_stock_basic_20230421210721.csv')
+        df_stock = pd.read_csv('files_data/tushare_stock_basic_20230421210721.csv')
         # Merge based on the stock code.
         df = pd.merge(df, df_stock, how='left', left_on='con_code', right_on='ts_code')
         # df.rename(columns={'name_y': 'name'}, inplace=True)
@@ -1883,7 +1871,7 @@ def query_fund_name_or_code(fund_name: str = '', fund_code: str = '') -> str:
     # Query the fund code based on the fund name.
     if fund_name != '' and fund_code == '':
         #
-        df = pd.read_csv('./tushare_fund_basic_all.csv')
+        df = pd.read_csv('./files_data/tushare_fund_basic_all.csv')
         #
         # df = pro.fund_basic(**{
         #     "ts_code": "",
@@ -1906,7 +1894,7 @@ def query_fund_name_or_code(fund_name: str = '', fund_code: str = '') -> str:
         return code
     # Query the fund name based on the fund code.
     if fund_code != '' and fund_name == '':
-        df = pd.read_csv('./tushare_fund_basic_all.csv')
+        df = pd.read_csv('./files_data/tushare_fund_basic_all.csv')
         try:
             name = df[df['ts_code'] == fund_code]['name'].values[0]
         except:

@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 
 # 创建输出文件夹
-OUTPUT_DIR = "analysis_output"
+OUTPUT_DIR = "output_analysis"
 if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
 

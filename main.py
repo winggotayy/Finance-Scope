@@ -389,9 +389,9 @@ def run(model, instruction, add_to_queue=None, send_chat_request_Azure = send_of
 
     finally_output = list(result_buffer_viz.values()) # plt.Axes
 
-    # add: save the visualization result to the result folder
+    # add: save the visualization result to the output folder
     # 确保输出目录存在
-    output_dir = "result"
+    output_dir = "output"
     os.makedirs(output_dir, exist_ok=True)
     
     df = pd.DataFrame()
