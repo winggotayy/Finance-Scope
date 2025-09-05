@@ -20,9 +20,13 @@ FinanceScope 是一个基于大语言模型(LLM)的智能多源金融数据分�
 
 ## 📸 演示视频
 
-| 金融数据分析 | 金融文本分析 |
-|:---:|:---:|
-| ![查询演示](./demo1.gif) | ![图表演示](./demo2.gif) |
+![数据](./demo1.gif) 
+
+金融数据分析
+
+![文本](./demo2.gif) 
+
+金融文本分析
 
 ---
 
@@ -49,7 +53,7 @@ FinanceScope 是一个基于大语言模型(LLM)的智能多源金融数据分�
     python main.py
     ```
     
-    ### 请记得填写您所选 LLM 的密钥：
+    **请记得填写您所选 LLM 的密钥：**
     
     对于 **GPT** 模型，请在 `main.py` 中填写 OpenAI 的密钥：
     
@@ -63,7 +67,7 @@ FinanceScope 是一个基于大语言模型(LLM)的智能多源金融数据分�
     dashscope.api_key='<您的 API 密钥>'
     ```
 
-    ### 同时，请在运行代码前填写 Tushare 和 NewsAPI 的 token 及 key：
+    **同时，请在运行代码前填写 Tushare 和 NewsAPI 的 token 及 key：**
 
     在 `tool.py` 中填写 Tushare token：
     
