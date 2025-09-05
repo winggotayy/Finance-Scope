@@ -5,8 +5,11 @@
 FinanceScope 是一个基于大语言模型(LLM)的智能多源金融数据分析及可视化系统。该系统允许用户通过自然语言查询与金融数据交互，同时提供全面的分析洞察和丰富的可视化展示。
 
 🚩 [English README](./README.en.md)
+
 📑 [论文全文 (PDF)](https://drive.google.com/file/d/10f9GF0twI1ypuXm9Cj1tWsNy3drIIxjF/view?usp=drive_link)  
+
 ▶️ [功能演示 1 (MP4)](./demo1.mp4)  
+
 ▶️ [功能演示 2 (MP4)](./demo2.mp4) 
 
 ---
