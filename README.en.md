@@ -21,7 +21,7 @@ FinanceScope is an intelligent multi-source financial data analysis and visualiz
 | 🤖 Multi-Model Support | Switch between GPT-3.5 / Qwen-72B-Chat / DeepSeek-R1 / Fin-R1 with one click |
 | 💬 Natural Language Query | Query financial data via natural language |
 | 📊 Multi-Source Data | Covers stocks, funds, financial reports, macro indicators, and news sentiment |
-| 🎨 Rich Visualizations | Line charts, candlesticks, heatmaps, pie charts, sentiment radar, and more |
+| 🎨 Rich Visualizations | Line charts, candlesticks, heatmaps, pie charts, and more |
 | 🎯 User-Friendly UI | Intuitive web interface for seamless interaction |
 
 ---
