@@ -29,7 +29,7 @@ def fetch_news(keyword="股票"):
     url = "https://newsapi.org/v2/everything"
     params = {
         "q": keyword,
-        "apiKey": "6900df901f2346f0a1822ccea28c6d52",
+        "apiKey": os.getenv("NEWSAPI_KEY"),
         "language": language,
         "sortBy": "publishedAt",
         "pageSize": 100,  # 最大100条/次
