@@ -124,17 +124,29 @@ FinanceScope is an intelligent multi-source financial data analysis and visualiz
 FinanceScope adopts a layered design. LLMs parse user intent and orchestrate multiple modules to complete financial analysis and visualization.
 
 ### Plan & Execute
+<div align="center">
+
 ![plan&exec](./figures/plan_n_exe_page-0001.jpg)
+
+</div>
 
 The **Planner** component interprets user intent and generates structured task plans, while the **Executor** executes them sequentially.
 
 ### Core Workflow
+<div align="center">
+
 ![workflow](./figures/core-workflow_page-0001.jpg)
+
+</div>
 
 From natural language query to structured intent recognition, task planning, tool execution, visualization, and summarization — a full pipeline delivers multimodal outputs.
 
 ### Modular Design
+<div align="center">
+
 ![modules](./figures/modules_page-0001.jpg)
+
+</div>
 
 Key modules include the LLM orchestration interface, tool libraries, and data source APIs, all coordinated through unified interfaces.
 

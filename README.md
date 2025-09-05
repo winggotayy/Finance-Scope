@@ -123,15 +123,30 @@ FinanceScope 是一个基于大语言模型(LLM)的智能多源金融数据分�
 本系统采用分层设计，通过LLM智能解析用户意图，并协调多个模块完成金融数据分析与可视化任务。
 
 ### 规划与执行机制
+<div align="center">
+
 ![plan&exec](./figures/plan_n_exe_page-0001.jpg)
+
+</div>
+
 Planner组件负责理解用户意图并生成结构化任务计划，Executor组件按顺序调用相应接口执行这些任务。
 
 ### 核心工作流程
+<div align="center">
+
 ![workflow](./figures/core-workflow_page-0001.jpg)
+
+</div>
+
 系统接收用户自然语言查询后，经过意图识别、任务规划、工具执行、可视化渲染和摘要生成的全流程，最终输出多模态结果。
 
 ### 模块化设计
+<div align="center">
+
 ![modules](./figures/modules_page-0001.jpg)
+
+</div>
+
 系统主要由LLM调度接口、工具库接口和数据源接口三大模块组成，通过统一接口进行调度协作。
 
 ---
