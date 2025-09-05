@@ -4,6 +4,11 @@
 
 FinanceScope is an intelligent multi-source financial data analysis and visualization system powered by Large Language Models (LLMs). This system enables users to interact with financial data through natural language queries while providing comprehensive analytical insights and rich visualizations.
 
+🚩 [中文 README](./README.md)  
+📑 [Read the Thesis (PDF)](https://drive.google.com/file/d/10f9GF0twI1ypuXm9Cj1tWsNy3drIIxjF/view?usp=drive_link)  
+▶️ [Watch Demo 1 (MP4)](./demo1.mp4)  
+▶️ [Watch Demo 2 (MP4)](./demo2.mp4) 
+
 ---
 
 ## ✨ Key Features
