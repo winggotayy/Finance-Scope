@@ -31,57 +31,48 @@ FinanceScope 是一个基于大语言模型(LLM)的智能多源金融数据分�
 ## 📦 安装部署
 
 1. **克隆仓库**
-   
     ```bash
     git clone https://github.com/winggotayy/Finance-Scope.git
     cd Finance-Scope
     ```
 
 2. **安装依赖**
-    
     python版本：3.8
-    
     ```bash
     pip install -r requirements.txt
     ```
 
 3. **本地运行**
-   
     ```bash
     python main.py
     ```
     
     **请记得填写您所选 LLM 的密钥：**
-    
-    对于 **GPT** 模型，请在 `main.py` 中填写 OpenAI 的密钥：
-    
+  
+- 对于 **GPT** 模型，请在 `main.py` 中填写 OpenAI 的密钥：
     ```bash
     openai_key = os.getenv("OPENAI_KEY")
     ```
     
-    对于 **Fin-R1、Qwen-72b-Chat和Deepseek** 模型，请在 `lab_llms_call.py` 中填写密钥：
-    
+- 对于 **Fin-R1、Qwen-72b-Chat和Deepseek** 模型，请在 `lab_llms_call.py` 中填写密钥：
     ```bash
     dashscope.api_key='<您的 API 密钥>'
     ```
 
     **同时，请在运行代码前填写 Tushare 和 NewsAPI 的 token 及 key：**
 
-    在 `tool.py` 中填写 Tushare token：
-    
+- 在 `tool.py` 中填写 Tushare token：  
     ```bash
     tushare_token = os.getenv('TUSHARE_TOKEN')
     pro = ts.pro_api(tushare_token)
     ```
 
-    在 `text_web.py` 中填写 NewsaAPI key：
-    
+- 在 `text_web.py` 中填写 NewsaAPI key：  
     ```bash
     newsapi_key = os.getenv('NEWSAPI_KEY')
     ```
 
 4. **Streamlit 网页界面**
-
     ```bash
     streamlit run app.py
     ```
@@ -108,20 +99,20 @@ FinanceScope 是一个基于大语言模型(LLM)的智能多源金融数据分�
 ## 🎯 使用方法
 
 1. **选择LLM模型和分析模式**
-- LLM模型：GPT3.5、DeepSeek、Qwen-72b-Chat、Fin-R1
-- 分析模式：数据分析、文本分析
+   - LLM模型：GPT3.5、DeepSeek、Qwen-72b-Chat、Fin-R1
+  - 分析模式：数据分析、文本分析
   
 2. **提交有关金融市场数据的自然语言查询**
-- 数据分析：自然语言查询
-- 文本分析：关键字搜索
+   - 数据分析：自然语言查询
+   - 文本分析：关键字搜索
 
 3. **查看分析结果**
-- 文本摘要
-- 表格
-- 图表
+   - 文本摘要
+   - 表格
+   - 图表
   
 4. **访问预设的示例查询**
-- 了解系统的功能
+   - 了解系统的功能
   
 5. **将导出的完整结果下载，保存供后续使用**
 

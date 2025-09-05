@@ -100,22 +100,22 @@ FinanceScope is an intelligent multi-source financial data analysis and visualiz
 ## 🎯 Usage
 
 1. **Choose LLM model and analysis mode**
-- Models: GPT-3.5, DeepSeek, Qwen-72B-Chat, Fin-R1
-- Modes: Data Analysis, Text Analysis
+   - Models: GPT-3.5, DeepSeek, Qwen-72B-Chat, Fin-R1
+  - Modes: Data Analysis, Text Analysis
   
 2. **Submit a natural language query**
-- Data Analysis: Query structured financial data
-- Text Analysis: Search news and reports with keywords
+   - Data Analysis: Query structured financial data
+  - Text Analysis: Search news and reports with keywords
 
 3. **View results**
-- Summaries
-- Tables
-- Visual charts
+   - Summaries
+  - Tables
+  - Visual charts
 
 4. **Try built-in sample queries**
-- Explore system capabilities
+   - Explore system capabilities
   
-1. **Export results. Download full reports for later use**
+5. **Export results. Download full reports for later use**
 
 ---
 
@@ -125,14 +125,17 @@ FinanceScope adopts a layered design. LLMs parse user intent and orchestrate mul
 
 ### Plan & Execute
 ![plan&exec](./figures/plan_n_exe_page-0001.jpg)
+
 The **Planner** component interprets user intent and generates structured task plans, while the **Executor** executes them sequentially.
 
 ### Core Workflow
 ![workflow](./figures/core-workflow_page-0001.jpg)
+
 From natural language query to structured intent recognition, task planning, tool execution, visualization, and summarization — a full pipeline delivers multimodal outputs.
 
 ### Modular Design
 ![modules](./figures/modules_page-0001.jpg)
+
 Key modules include the LLM orchestration interface, tool libraries, and data source APIs, all coordinated through unified interfaces.
 
 ---
